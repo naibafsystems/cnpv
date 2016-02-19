@@ -39,7 +39,7 @@
 					<div class="col-md-6">
 						<div class="radio">
 							<div class='panel panel-primary'>
-								<div class='panel-body' align="justify"> Tenga en cuenta que HOGAR es una persona o grupo de personas, parientes o no, que:<br>
+								<div class='panel-body' align="justify"> Ten en cuenta que HOGAR es una persona o grupo de personas, parientes o no, que:<br>
 								- Ocupan la totalidad o parte de una vivienda.<br>
 								- Atienden necesidades b&aacute;sicas con cargo a un presupuesto com&uacute;n.<br>
 								- Generalmente comparten las comidas.
@@ -60,7 +60,7 @@
 				<div class="row">
 					<div class='col-md-10'>
 					 	<div class="radio">
-							<label> De acuerdo con las anteriores definiciones, &iquest;cu&aacute;ntas personas conforman su hogar? </label>
+							<label> De acuerdo con las anteriores definiciones, &iquest;cu&aacute;ntas personas conforman tu hogar? </label>
 						</div>
 					</div>
 					
@@ -78,14 +78,14 @@
 					</div>
 					<div class='col-md-10'>
 						<div class="radio">
-							<label>Registre los datos de cada una de las personas que conforman su hogar.</label>
+							<label>Registra los datos de cada una de las personas que conforman tu hogar.</label>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class='col-md-12'  >
 						<div class='panel panel-primary' >
-							<div class='panel-body' align="justify" > Para registrar los datos de las personas que conforman su hogar, tenga en cuenta estas consideraciones. <img src="<?php echo base_url("images/help.png"); ?>"  title=" Adem&aacute;s de los residentes 'presentes', son residentes habituales del hogar que est&aacute; censando, PORQUE NO TIENEN RESIDENCIA HABITUAL EN OTRO LUGAR, las siguientes personas:
+							<div class='panel-body' align="justify" > Para registrar los datos de las personas que conforman tu hogar, ten en cuenta estas consideraciones. <img src="<?php echo base_url("images/help.png"); ?>"  title=" Adem&aacute;s de los residentes 'presentes', son residentes habituales del hogar que est&aacute; censando, PORQUE NO TIENEN RESIDENCIA HABITUAL EN OTRO LUGAR, las siguientes personas:
  -Los miembros del hogar que en el momento de la entrevista se encuentren ausentes temporalmente por un periodo igual o inferior a 6 meses, por motivos especiales como: vacaciones, cursos de capacitaci&oacute;n, viajes de negocio, comisiones de trabajo, entre otros.
  - Los secuestrados y los desaparecidos, sin importar el tiempo de ausencia.
 - Los enfermos que reciben atenci&oacute;n en hospitales o cl&iacute;nicas, sin importar el tiempo de ausencia.

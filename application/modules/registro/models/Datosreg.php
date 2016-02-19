@@ -2,6 +2,8 @@
 
 	class datosreg extends MX_Controller {
 	
+		var $valid = 2;
+		
 		public function __construct(){		
 			parent::__construct();			
 		}
@@ -308,18 +310,20 @@
 	public function GridPerHogar($formulario){
 		$data = array();
 		//$formulario="900000159";
-		$sql = "SELECT  C4P40_TIPO_DOC, C4P41_NRO_PER,
-					C4P41_SABE_DOC,
-					C4P39A_1ER_NOMBRE,
-					C4P39AA_2DO_NOMBRE,
-					C4P39B_1ER_APELLIDO,
-					C4P39BB_2DO_APELLIDO,
-					C4P44_EDAD,
-					C4P42_SEXO,
-					JEFE,
-					SUM(NVL(case JEFE when 1 then 1 else 0 end, 0)) OVER () AS EXISTE,
-					SUM(NVL (completo, 0)) OVER () AS COMPLETO
-					FROM CNP_PREREGISTRO_PERSONAS
+		$sql = "SELECT  P.C4P40_TIPO_DOC, P.C4P41_NRO_PER,
+                    P.C4P41_SABE_DOC,
+                    P.C4P39A_1ER_NOMBRE,
+                    P.C4P39AA_2DO_NOMBRE,
+                    P.C4P39B_1ER_APELLIDO,
+                    P.C4P39BB_2DO_APELLIDO,
+                    P.C4P44_EDAD,
+                    P.C4P42_SEXO,
+                    P.JEFE,
+                    SUM(NVL(case P.JEFE when 1 then 1 else 0 end, 0)) OVER () AS EXISTE,
+                    SUM(NVL (P.completo, 0)) OVER () AS COMPLETO,
+                    V.FECH_EXP_CC
+					FROM CNP_PREREGISTRO_PERSONAS P
+					INNER JOIN CNPV_PERSONA_HOGAR  V ON P.NRO_ENCUESTA_FORM = V.C0I1_ENCUESTA AND V.C3P24_NROHOG='1' AND P.C4P41_NRO_PER= V.C4P41_NRO_PER
 					WHERE NRO_ENCUESTA_FORM='".$formulario."'";
 		$query = $this->db->query($sql);
 		if ($query->num_rows() > 0){
@@ -329,6 +333,7 @@
 				$data[$i]["EXISTE"] = $row->EXISTE;
 				$data[$i]['COMPLETO']=$row->COMPLETO;
 				$data[$i]["C4P41_NRO_PER"] = $row->C4P41_NRO_PER;
+				$data[$i]["FECH_EXP_CC"] = $row->FECH_EXP_CC;
 				$data[$i]["C4P42A_1ER_NOMBRE"] = $row->C4P39A_1ER_NOMBRE;
 				$data[$i]["C3R38B2_2NOMBRE"] = $row->C4P39AA_2DO_NOMBRE;
 				$data[$i]["C4P42B_1ER_APELLIDO"] = $row->C4P39B_1ER_APELLIDO;
@@ -429,6 +434,7 @@
 	 * @since  Enero / 2016
 	 */
 	public function GuardaPerHogard($datos){
+		$this->load->model("wsmodel");
 		//var_dump ($datos);
 		$existe=0;
 	
@@ -450,9 +456,13 @@
 		$query = $this->db->query($sql);
 	
 	
+		if ($datos['C4P43_TIPO_DOC']==3){
+			$this->valid = $this->wsmodel->validarCedulaWS($datos['C4P44_NRO_DOC']);
+		}
+		
 		$sql = "INSERT INTO CNPV_PERSONA_HOGAR
-			(C0I1_ENCUESTA, C3P24_NROHOG, C4P41_NRO_PER, C4P42A_1ER_NOMBRE,  C4P42B_1ER_APELLIDO, C4P43_TIPO_DOC, C4P44_NRO_DOC, C4P45_SEXO, C4P47_EDAD, C4P49_PARENTESCO)
-			VALUES ('".$datos['formulario']."', '1', '".$consecutivo."', '".$datos['C4P42A_1ER_NOMBRE']."', '".$datos['C4P42B_1ER_APELLIDO']."', '".$datos['C4P43_TIPO_DOC']."', '".$datos['C4P44_NRO_DOC']."', '".$datos['C4P45_SEXO']."', '".$datos['C4P47_EDAD']."', '".$datos['C4P49_PARENTESCO']."')";
+			(C0I1_ENCUESTA, C3P24_NROHOG, C4P41_NRO_PER, C4P42A_1ER_NOMBRE,  C4P42B_1ER_APELLIDO, C4P43_TIPO_DOC, C4P44_NRO_DOC, C4P45_SEXO, C4P47_EDAD, C4P49_PARENTESCO, VALIDA_CEDULA)
+			VALUES ('".$datos['formulario']."', '1', '".$consecutivo."', '".$datos['C4P42A_1ER_NOMBRE']."', '".$datos['C4P42B_1ER_APELLIDO']."', '".$datos['C4P43_TIPO_DOC']."', '".$datos['C4P44_NRO_DOC']."', '".$datos['C4P45_SEXO']."', '".$datos['C4P47_EDAD']."', '".$datos['C4P49_PARENTESCO']."', $this->valid)";
 		$query = $this->db->query($sql);
 	
 	
@@ -527,9 +537,14 @@
 			$query = $this->db->query($sql);
 		}
 	
+		
+		if ($datos['C4P43_TIPO_DOC']==3){
+			$this->load->model("wsmodel");
+			$this->valid = $this->wsmodel->validarCedulaWS($datos['C4P44_NRO_DOC']);
+		}
+		
 		$sql = "UPDATE CNPV_PERSONA_HOGAR SET
-				C4P42A_1ER_NOMBRE= '".$datos['C4P42A_1ER_NOMBRE']."', C4P42B_1ER_APELLIDO= '".$datos['C4P42B_1ER_APELLIDO']."', C4P43_TIPO_DOC='".$datos['C4P43_TIPO_DOC']."', C4P44_NRO_DOC='".$datos['C4P44_NRO_DOC']."', C4P45_SEXO='".$datos['C4P45_SEXO']."', C4P47_EDAD='".$datos['C4P47_EDAD']."', C4P49_PARENTESCO='".$datos['C4P49_PARENTESCO']."'
-				WHERE C0I1_ENCUESTA= '".$datos['formulario']."'  AND  C4P41_NRO_PER = '".$datos['C4P41_NRO_PER']."'";
+				C4P42A_1ER_NOMBRE= '".$datos['C4P42A_1ER_NOMBRE']."', C4P42B_1ER_APELLIDO= '".$datos['C4P42B_1ER_APELLIDO']."', C4P43_TIPO_DOC='".$datos['C4P43_TIPO_DOC']."', C4P44_NRO_DOC='".$datos['C4P44_NRO_DOC']."', C4P45_SEXO='".$datos['C4P45_SEXO']."', C4P47_EDAD='".$datos['C4P47_EDAD']."', C4P49_PARENTESCO='".$datos['C4P49_PARENTESCO']."', VALIDA_CEDULA = $this->valid WHERE C0I1_ENCUESTA= '".$datos['formulario']."'  AND  C4P41_NRO_PER = '".$datos['C4P41_NRO_PER']."'";
 		$query = $this->db->query($sql);
 		if ($query)
 		{

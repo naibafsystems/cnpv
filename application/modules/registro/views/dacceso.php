@@ -26,7 +26,7 @@
 				<div class="row">
 					<div class="col-md-9">
 						<div class="radio">
-							<label><span class="label label-danger">1</span> Es indispensable  identificarse, por favor diligenciar la siguiente informaci&oacute;n: </label>
+							<label><span class="label label-danger">1</span> Es indispensable  identificarse, por favor diligencia la siguiente informaci&oacute;n: </label>
 						</div>
 					</div>
 				</div>	
@@ -82,7 +82,7 @@
 				<div class="row">
 					<div class="col-md-9">
 						<div class="radio">
-							<label><span class="label label-danger">2</span> Diligencie su fecha de nacimiento e indique  su tipo y n&uacute;mero de documento de identidad.</label>
+							<label><span class="label label-danger">2</span> Diligencia tu fecha de nacimiento e indica tu tipo y n&uacute;mero de documento de identidad.</label>
 						</div>
 					</div>
 				</div>	
@@ -90,7 +90,8 @@
 				<div class="row">
 					<div class="col-md-2">
 						<div class="radio">
-			  				<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D&iacute;a <font color="red"><b>*</b></font> &nbsp;&nbsp;
+			  				<label>D&iacute;a <font color="red"><b>*</b></font></label>
+			  				<label>
 			  					<select id="ddia_nac" name="ddia_nac" autofocus> 
 									<option value="-">D&iacute;a</option>
 									<?php  for ($i=1; $i<=31; $i++){ ?> 
@@ -100,26 +101,32 @@
 							</label>
 						</div>
 					</div>
-					<div class="col-md-2">
-						<div class="radio">Mes <font color="red"><b>*</b></font> &nbsp;&nbsp;
-						  	<select id="dmes_nac" name="dmes_nac" autofocus>
-								<option value="-">Mes</option>
-								<?php for ($i=1; $i <= 12; $i++){
-									$Mes_Desc = ($i==1) ? "ENERO" : (($i==2) ? "FEBRERO" : (($i==3) ? "MARZO" : (($i==4) ? "ABRIL" : (($i==5) ? "MAYO" : (($i==6) ? "JUNIO" : (($i==7) ? "JULIO" : (($i==8) ? "AGOSTO" : (($i==9) ? "SEPTIEMBRE" : (($i==10) ? "OCTUBRE" : (($i==11) ? "NOVIEMBRE" : "DICIEMBRE" )))))))))) ;
-									?>
-									<option <?php if($fec_nac["C4P46B_MES_NAC"]==$i){?>selected="selected"<?php }?> value="<?php  echo($i);?>"><?php echo($Mes_Desc);?> </option>
-								<?PHP  }?>
-							</select>
+					<div class="col-md-3">
+						<div class="radio">
+							<label>Mes <font color="red"><b>*</b></font></label>
+							<label>
+							  	<select id="dmes_nac" name="dmes_nac" autofocus>
+									<option value="-">Mes</option>
+									<?php for ($i=1; $i <= 12; $i++){
+										$Mes_Desc = ($i==1) ? "ENERO" : (($i==2) ? "FEBRERO" : (($i==3) ? "MARZO" : (($i==4) ? "ABRIL" : (($i==5) ? "MAYO" : (($i==6) ? "JUNIO" : (($i==7) ? "JULIO" : (($i==8) ? "AGOSTO" : (($i==9) ? "SEPTIEMBRE" : (($i==10) ? "OCTUBRE" : (($i==11) ? "NOVIEMBRE" : "DICIEMBRE" )))))))))) ;
+										?>
+										<option <?php if($fec_nac["C4P46B_MES_NAC"]==$i){?>selected="selected"<?php }?> value="<?php  echo($i);?>"><?php echo($Mes_Desc);?> </option>
+									<?PHP  }?>
+								</select>
+							</label>
 						</div>
 					</div>
 					<div class="col-md-2">
-						<div class="radio">A&ntilde;o <font color="red"><b>*</b></font> &nbsp;&nbsp;
-							<select  id="dano_nac" name="dano_nac"  autofocus>
-								<option value="-">A&ntilde;o</option>
-								<?php for ($i=1998; $i>=1910; $i--){ ?> 
-									<option <?php if($fec_nac["C4P46C_ANO_NAC"]==$i){?>selected="selected"<?php }?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-								<?php }  ?>
-							</select>
+						<div class="radio">
+							<label>A&ntilde;o <font color="red"><b>*</b></font></label>
+							<label>
+								<select  id="dano_nac" name="dano_nac"  autofocus>
+									<option value="-">A&ntilde;o</option>
+									<?php for ($i=1998; $i>=1910; $i--){ ?> 
+										<option <?php if($fec_nac["C4P46C_ANO_NAC"]==$i){?>selected="selected"<?php }?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+									<?php }  ?>
+								</select>
+							</label>
 						</div>
 					</div>
 					<div class="col-md-4">
@@ -207,7 +214,7 @@
 				<div class="row">
 					<div class="col-md-9">
 						<div class="radio">
-							<label><span class="label label-danger">3</span> Registre un n&uacute;mero de tel&eacute;fono fijo de contacto o celular.</label>
+							<label><span class="label label-danger">3</span> Registra un n&uacute;mero de tel&eacute;fono fijo de contacto o celular.</label>
 						</div>
 					</div>
 				</div>	
@@ -313,7 +320,7 @@
 				<div class="row">
 					<div class="col-md-9">
 						<div class="radio">
-							<label><span class="label label-danger">4</span> Registre su correo electr&oacute;nico. Usar&aacute;s esta informaci&oacute;n para ingresar a diligenciar el censo electr&oacute;nico y recuperar contrase&ntilde;a.</label>
+							<label><span class="label label-danger">4</span> Registra tu correo electr&oacute;nico. Usar&aacute;s esta informaci&oacute;n para ingresar a diligenciar el censo electr&oacute;nico y recuperar contrase&ntilde;a.</label>
 						</div>
 					</div>
 				</div>	
@@ -322,13 +329,13 @@
 				<div class="row">
 					<div class="col-md-5">
 						<div class="radio">
-							<label>Correo Electr&oacute;nico <font color="red"><b>*</b></font></label>
+							<label>Correo electr&oacute;nico <font color="red"><b>*</b></font></label>
 							<label><input type="text" id="dtxtcorreo" name="dtxtcorreo" value="<?php echo (isset($datosp['CORREO_ELECTRONICO']))?$datosp['CORREO_ELECTRONICO']:""; ?>"  placeholder=" usuario@ejemplo.com"  required style=" width:200px"/></label>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="radio">
-							<label>Vuelva a ingresar el correo electr&oacute;nico<font color="red"><b>*</b></font></label>
+							<label>Vuelve a ingresar el correo electr&oacute;nico<font color="red"><b>*</b></font></label>
 							<label><input type="text" id="dtxtcorreo1" name="dtxtcorreo1" value="<?php echo (isset($datosp['CORREO_ELECTRONICO']))?$datosp['CORREO_ELECTRONICO']:""; ?>"  placeholder=" usuario@ejemplo.com"  required style=" width:200px"/></label>
 						</div>
 					</div>
@@ -354,18 +361,18 @@
 	  			<div class="row">
 					<div class="col-md-9">
 						<div class="radio">
-							<label>Tenga en cuenta que para la contrase&ntilde;a debe combinar letras y n&uacute;meros, con m&iacute;nimo seis (6) caracteres y m&iacute;nimo una may&uacute;scula.</label>
+							<label>Ten en cuenta que para la contrase&ntilde;a debes combinar letras y n&uacute;meros, con m&iacute;nimo seis (6) caracteres y m&iacute;nimo una may&uacute;scula.</label>
 						</div>
 					</div>
 					<div class="col-md-5">
 						<div class="radio">
-							<label>Escriba una contrase&ntilde;a. <font color="red"><b>*</b></font></label>
+							<label>Escribe una contrase&ntilde;a. <font color="red"><b>*</b></font></label>
 							<label><input type="password" id="dtxtcontras" name="dtxtcontras"  value ="<?php echo (isset($datosp['CONTRASENA']))?$datosp['CONTRASENA']:""; ?>" placeholder="Digite su contrase&ntilde;a"  required /></label>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="radio">
-							<label>Escriba nuevamente su Contrase&ntilde;a: <font color="red"><b>*</b></font></label>
+							<label>Escribe nuevamente tu contrase&ntilde;a: <font color="red"><b>*</b></font></label>
 							<label><input type="password" id="dtxtcontras2" name="dtxtcontras2" value="<?php echo (isset($datosp['CONTRASENA']))?$datosp['CONTRASENA']:""; ?>"  placeholder="Digite su contrase&ntilde;a"  required></label>
 						</div>
 					</div>

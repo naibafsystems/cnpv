@@ -19,14 +19,14 @@
 				 <div class="row">
 					<div class="col-md-10">
 						<div class="radio">
-							<label> Gracias <?php echo $datos['PRIMER_NOMBRE']. " " . $datos['SEGUNDO_NOMBRE']. " " . $datos['PRIMER_APELLIDO']. " " . $datos['SEGUNDO_APELLIDO']?> por formar parte de la construcci&oacute;n  de la recolecci&oacute;n web del Censo Nacional de Poblaci&oacute;n.</br></label>
+							<label> Gracias <?php echo $datos['PRIMER_NOMBRE']. " " . $datos['SEGUNDO_NOMBRE']. " " . $datos['PRIMER_APELLIDO']. " " . $datos['SEGUNDO_APELLIDO']?>  por formar parte de la construcci&oacute;n de un mecanismo innovador para  Censo Nacional de Poblaci&oacute;n y Vivienda.</br></label>
 						</div>
 					</div>
 				</div>	
 				<div class="row">
 					<div class="col-md-10">
 						<div class="radio">
-							<label>Recuerde que la fecha asignada para diligenciar el formulario es del </label><font color="orange"> <b>1 de Marzo al 15 de Marzo</b> </font></br>
+							<label>Recuerda que la fecha asignada para diligenciar el formulario es del </label><font color="orange"> <b>1 de Marzo al 18 de Marzo</b> </font></br>
 						</div>	
 					</div>
 				</div>
@@ -47,46 +47,32 @@
 				<div class="row">
 					<div class="col-md-10">
 						<div class="radio">
-							<label> <span class="label label-danger">1</span> Ingrese en el siguiente enlace: &nbsp;&nbsp; </label><a  href="http://pilotoecenso.dane.gov.co/ecenso"><b>http://pilotoecenso.dane.gov.co/ecenso</b></a>
+							<label> <span class="label label-danger">1</span> Ingresa en el siguiente enlace: &nbsp;&nbsp; </label><a  href="http://pilotoecenso.dane.gov.co/ecenso"><b>http://pilotoecenso.dane.gov.co/ecenso</b></a>
 						</div>
 					</div>
 				</div>							
 				<div class="row">
 					<div class="col-md-10">
 						<div class="radio">
-							<label> <span class="label label-danger">2</span> Ingrese con su usuario: &nbsp;&nbsp; <font color="green"> <?php echo $datos['CORREO_ELECTRONICO'] ?> </font></label>
+							<label> <span class="label label-danger">2</span> Ingresa con tu usuario: &nbsp;&nbsp; <font color="green"> <?php echo $datos['CORREO_ELECTRONICO'] ?> </font> y la contrase&ntilde;a registrada: &nbsp;&nbsp; <font color="green"> <?php echo $datos['CONTRASENA'] ?> </font></label>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-10">
 						<div class="radio">
-							<label>&nbsp;&nbsp;&nbsp;&nbsp;y la contrase&ntilde;a registrada por usted: &nbsp;&nbsp; <font color="green"> <?php echo $datos['CONTRASENA'] ?> </font></label>
+							<label> <span class="label label-danger">3</span> Despu&eacute;s de ingresar con tu usuario y contrase&ntilde;a, podr&aacute;s iniciar el diligenciamiento del  formulario electr&oacute;nico.</label>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-10">
 						<div class="radio">
-							<label> <span class="label label-danger">3</span> Despu&eacute;s de ingresar con su usuario y contrase&ntilde;a, se presentar&aacute;n las siguientes 4 secciones para diligenciar.</label></br></br>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-10">
-						<div class="radio">
-							<label> <span class="label label-danger">4</span> En caso de requerir soporte en el diligenciamiento, usted cuenta con las siguientes opciones:</label></br></br>
+							<label> <span class="label label-danger">4</span> En caso de requerir soporte para el diligenciamiento, cuenta con las opciones de correo electr&oacute;nico, l&iacute;nea gratuita de atenci&oacute;n y chat. </label></br></br>
 						</div>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-md-10">
-						<div class="radio">
-							<img src="<?php echo base_url("images/contactenos.png"); ?>" class="img-rounded"><br/><br/>
-						</div>
-					</div>
-				</div>
 			</form> 
 		</div>
 	</div>

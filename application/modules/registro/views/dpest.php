@@ -4,7 +4,7 @@ var_dump ($pestania);*/
 ?>
 <script type="text/javascript" src="<?php  echo base_url("js/registro/registro.js"); ?>"></script>
 <div class="page-header">
-	<h1>e-censo / Registro</h1>
+	<h1>e-censo / Inscripci&oacute;n</h1>
 </div>
 
 <div id="page1" class="row col-md-12">

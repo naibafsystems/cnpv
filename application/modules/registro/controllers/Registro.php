@@ -332,5 +332,14 @@
 		}
 		
 		
+		public function buscadatosd()
+		{
+			$valores=array();
+			$this->load->model("wsmodel");
+			$cedula=$this->input->post("cedula");
+			$valores = $this->wsmodel->validaCedulaWSData($cedula);
+			echo json_encode( $valores );
+		}
+		
 		
 	}//EOC

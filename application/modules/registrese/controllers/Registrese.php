@@ -23,6 +23,18 @@
 		}
 		
 		
+		
+		
+		public function buscadatos()
+		{
+			$valores=array();
+			$this->load->model("wsmodel");
+			$cedula=$this->input->post("cedula");
+			$valores = $this->wsmodel->validaCedulaWSData($cedula);
+			//var_dump ($valores);
+			echo json_encode( $valores );
+			//return $valores;
+		}
 		/**
 		 * busca los municipios de un departamento determinado.
 		 * @author Angela Liliana Rodriguez Mahecha
@@ -403,5 +415,19 @@
 			}
 		}
 		
+		public function video()
+		{
+			$data["nomenu"] = true;
+			$data["view"] = "tutorial";
+			$this->load->view("layout",$data);
+		}
+		
+		
+		public function termicondi()
+		{
+			$data["nomenu"] = true;
+			$data["view"] = "registreseterminos";
+			$this->load->view("layout",$data);
+		}
 		
 	}//EOC
